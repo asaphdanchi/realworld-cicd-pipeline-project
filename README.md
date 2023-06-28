@@ -21,12 +21,8 @@
     your remote repository (your newly created repository). 
     - Go to GitHub (github.com)
     - Login to your GitHub Account
-    - Create a Repository called "Jenkins-CICD-Project"
-    - Clone the Repository in the "Repository" directory/folder in your local
-    - Download the code in in this repository "Main branch": https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
-    - Unzip the code/zipped file
-    - Copy and Paste everything from the zipped file into the repository you cloned in your local
-    - Add the code to git, commit and push it to your upstream branch "main or master"
+    - Open this page and click Fork.
+    - My repo is going to be replicated on your Github Account
     - Confirm that the code exist on GitHub
 
 2) Jenkins/Maven/Ansible
