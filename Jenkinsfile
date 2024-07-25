@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-        NEXUS_REPO = 'maven-releases'
+        NEXUS_REPO = 'thirrdparty'
         NEXUS_CREDENTIAL_ID = 'nexus-credentials'
     }
 
@@ -55,12 +55,12 @@ pipeline {
                         nexusVersion: 'nexus3',
                         protocol: 'http',
                         nexusUrl: '3.90.191.241:8081',
-                        groupId: mavenPom.getGroupId(),
-                        version: "${version}",
+                        groupId: tims-webapp,
+                        version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
                         repository: "${env.NEXUS_REPO}",
                         credentialsId: "${env.NEXUS_CREDENTIAL_ID}",
                         artifacts: [
-                            [artifactId: mavenPom.getArtifactId(),
+                            [artifactId: tims-webapp,
                              classifier: '',
                              file: "${WORKSPACE}/target/${mavenPom.getArtifactId()}-${version}.war",
                              type: 'war']
