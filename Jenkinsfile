@@ -31,10 +31,17 @@ pipeline {
         }
       }
     }
+<<<<<<< HEAD
     stage('Unit Test'){
         steps {
             sh 'mvn test'
         }
+=======
+
+    environment {
+        NEXUS_REPO = 'thirrdparty'
+        NEXUS_CREDENTIAL_ID = 'nexus-credentials'
+>>>>>>> 380d9b3139504eda61f461a552e47211079e19be
     }
     stage('Integration Test'){
         steps {
@@ -50,6 +57,7 @@ pipeline {
                 echo 'Generated Analysis Result'
             }
         }
+<<<<<<< HEAD
     }
     stage('SonarQube Inspection') {
         steps {
@@ -61,6 +69,58 @@ pipeline {
                   -Dsonar.host.url=http://54.242.52.185:9000 \
                   -Dsonar.login=fa54987dec10a4f624f30b92b99b7af4f70e34b1
                 """
+=======
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+            post {
+                success {
+                    archiveArtifacts artifacts: '**/*.war'
+                }
+            }
+        }
+
+        stage('Unit Tests') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+
+        stage('Integration Tests') {
+            steps {
+                sh 'mvn verify -DskipUnitTests'
+            }
+        }
+
+        stage('Code Analysis') {
+            steps {
+                sh 'mvn checkstyle:checkstyle'
+            }
+        }
+
+        stage('Deploy to Nexus') {
+            steps {
+                script {
+                    def mavenPom = readMavenPom file: 'pom.xml'
+                    def version = mavenPom.getVersion()
+                    nexusArtifactUploader(
+                        nexusVersion: 'nexus3',
+                        protocol: 'http',
+                        nexusUrl: '3.90.191.241:8081',
+                        groupId: tims-webapp,
+                        version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
+                        repository: "${env.NEXUS_REPO}",
+                        credentialsId: "${env.NEXUS_CREDENTIAL_ID}",
+                        artifacts: [
+                            [artifactId: tims-webapp,
+                             classifier: '',
+                             file: "${WORKSPACE}/target/${mavenPom.getArtifactId()}-${version}.war",
+                             type: 'war']
+                        ]
+                    )
+>>>>>>> 380d9b3139504eda61f461a552e47211079e19be
                 }
             }
         }
