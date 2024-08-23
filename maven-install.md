@@ -62,5 +62,5 @@ sudo yum install git -y
 8. Create the Settings file inside of the `~/.m2` directory
     ```
     cd ~/.m2/
-    mv demo/settings.xml ~/.m2/
+    mv settings.xml ~/.m2/
     ```
