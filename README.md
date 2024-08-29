@@ -590,7 +590,8 @@ echo "ansibleadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 ![SlackSuccessAllStages!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%205.06.44%20PM.png)
 
 - Confirm Access to your application: http://Dev-or-Stage-or-Prod-PubIP:8080/webapp/
-![FinalProductDisplay!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%204.50.42%20PM.png)
+![FinalProductDisplay!](![Screenshot 2024-08-29 at 02 45 10](https://github.com/user-attachments/assets/13922fdf-6c97-4811-a2f4-a7d90a2bed94)
+)
 
 ### NOTE: That By completing this project, you are now considered a Professional DevOps Engineer.  
 You've been able to accomplish something very unique and special which most people only dream of in their IT journey. Remmber that during an interview, you may be asked some challenging questions or be faced with a trial assignment that require you to both utilize your existing skillsets and think out of the box. During this time you must be very confident and determined in your pursuit. 
