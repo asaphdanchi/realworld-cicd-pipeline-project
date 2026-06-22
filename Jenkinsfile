@@ -58,8 +58,8 @@ pipeline {
                 sh """
                mvn sonar:sonar \
                   -Dsonar.projectKey=java-web-app \
-                  -Dsonar.host.url=http://3.91.216.149:9000 \
-                  -Dsonar.login=f76352b9cb814e8616a7c7a5a1871a408910238e
+                  -Dsonar.host.url=http://54.152.223.238:9000 \
+                  -Dsonar.login=8c23632133f818db518cee59a87ab04e449a7f22
                 """
                 }
             }
@@ -70,7 +70,7 @@ pipeline {
            nexusArtifactUploader(
               nexusVersion: 'nexus3',
               protocol: 'http',
-              nexusUrl: '34.204.11.168:8081',
+              nexusUrl: '13.217.2.83:8081',
               groupId: 'webapp',
               version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
               repository: 'maven-project-releases',  //"${NEXUS_REPOSITORY}",
